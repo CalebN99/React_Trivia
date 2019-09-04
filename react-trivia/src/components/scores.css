@@ -1,0 +1,38 @@
+.scoreTitle {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 26px;
+}
+
+
+
+.scorelist {
+    border: 3px solid #4484CE;
+    width: 570px;
+    border-radius: 25px;
+    margin: 0 auto;
+    background: #4484CE;
+}
+
+.score {
+    color: black;
+    font-size: 23px;
+    width: 560px;
+    background: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    text-align: left;
+    padding: 3px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nameSpan {
+    width: 100px;
+    position: absolute;
+
+}
+
+.scoreSpan {
+    margin-left: 340px;
+}
