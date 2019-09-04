@@ -1,0 +1,26 @@
+{
+    "name": "reacttrivia",
+    "version": "1.0.0",
+    "description": "React Trivia",
+    "main": "server.js",
+    "dependencies": {
+        "bcrypt": "^3.0.6",
+        "body-parser": "^1.19.0",
+        "concurrently": "^4.1.1",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mongoose": "^5.6.9",
+        "nodemon": "^1.19.1",
+        "react-router-dom": "^5.0.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "client-install": "npm install --prefix react-trivia",
+        "start": "node server.js",
+        "server": "nodemon server.js",
+        "client": "npm start --prefix react-trivia",
+        "dev": "concurrently \"npm run server\" \" npm run client\""
+    },
+    "author": "Caleb Norris",
+    "license": "MIT"
+}
