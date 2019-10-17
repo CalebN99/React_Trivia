@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./scores.css";
 import { connect } from "react-redux";
-import { getItems, addItem } from "../actions/itemAction";
+import { getItems } from "../actions/itemAction";
 import PropTypes from "prop-types";
 
 import { Provider } from "react-redux";

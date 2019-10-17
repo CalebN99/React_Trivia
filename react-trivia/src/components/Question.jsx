@@ -13,12 +13,11 @@ class Question extends Component {
       items: [],
       isLoaded: false,
       questionNum: 0,
-      difficulty: "easy",
       Score: 0,
       timer: 15,
       dec: 1,
       qOrder: 0,
-      pointMult: 1.5,
+      pointMult: 0,
       questionSwitch: 0,
       correctColor: "white",
       wrongColor1: "white",
@@ -30,11 +29,15 @@ class Question extends Component {
 
   componentDidMount() {
     fetch(
-      `https://opentdb.com/api.php?amount=15&category=18&difficulty=${this.state.difficulty}&type=multiple`
+      `https://opentdb.com/api.php?amount=15&category=18&difficulty=${this.props.difficulty}&type=multiple`
     )
       .then(res => res.json())
       .then(json => {
-        this.setState({ isLoaded: true, items: json.results });
+        this.setState({
+          isLoaded: true,
+          items: json.results,
+          pointMult: (this.state.pointMult = this.props.pointMult)
+        });
         this.decrementTime();
         let random = Math.floor(Math.random() * 4);
       });
@@ -71,7 +74,7 @@ class Question extends Component {
     let random = Math.floor(Math.random() * 4);
     if (answer) {
       self.setState({
-        Score: this.state.Score + this.state.timer * this.state.pointMult
+        Score: this.state.Score + this.state.timer * this.props.pointMult
       });
     }
     self.setState({
@@ -93,7 +96,9 @@ class Question extends Component {
         dec: (this.state.dec = 1)
       });
       self.setState({ qOrder: (this.state.qOrder = random) });
-      self.setState({ pointMult: (this.state.pointMult = 1.5) });
+      self.setState({
+        pointMult: (this.state.pointMult = this.props.pointMult)
+      });
     }, 3000);
   }
 
@@ -142,6 +147,9 @@ class Question extends Component {
                     type="text"
                     onChange={this.setName.bind(this)}
                     value={this.state.Name}
+                    onClick={e => {
+                      window.location.reload();
+                    }}
                     className="nameINPUT"
                     placeholder="Name"
                     autoFocus

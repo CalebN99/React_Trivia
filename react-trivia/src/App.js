@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Question from "./components/Question";
-import QuestionM from "./components/QuestionM";
-import QuestionH from "./components/QuestionH";
+
 import Scoreboard from "./components/Scoreboard";
 
 import { Provider } from "react-redux";
@@ -45,13 +44,34 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <div />
             <Switch>
               <Route path="/" exact component={Home} />
-              <Route path="/question" exact component={Question} />
-              <Route path="/questionm" exact component={QuestionM} />
-              <Route path="/questionh" exact component={QuestionH} />
-              <Route path="/scoreboard" exact component={Scoreboard} />
+              <Route
+                path="/question"
+                exact
+                render={props => (
+                  <Question {...props} difficulty={"easy"} pointMult={2} />
+                )}
+              />
+              <Route
+                path="/questionm"
+                exact
+                render={props => (
+                  <Question {...props} difficulty={"medium"} pointMult={3} />
+                )}
+              />
+              <Route
+                path="/questionh"
+                exact
+                render={props => (
+                  <Question {...props} difficulty={"hard"} pointMult={4} />
+                )}
+              />
+              <Route
+                path="/scoreboard"
+                exact
+                render={props => <Scoreboard {...props} />}
+              />
             </Switch>
           </div>
         </Router>
