@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
 });
 
 mongoose.connect(
-  "mongodb+srv://beepboop:1234@cluster0-vpexq.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://Haunt626:Claybub10@calebsexpress-qez3f.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 

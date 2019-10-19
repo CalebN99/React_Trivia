@@ -6,6 +6,8 @@ import { Container } from "reactstrap";
 import "./Question.css";
 import { connect } from "react-redux";
 import { addItem } from "../actions/itemAction";
+import { Link } from "react-router-dom";
+
 class Question extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +31,7 @@ class Question extends Component {
 
   componentDidMount() {
     fetch(
-      `https://opentdb.com/api.php?amount=15&category=18&difficulty=${this.props.difficulty}&type=multiple`
+      `https://opentdb.com/api.php?amount=15&category=${this.props.category}&difficulty=${this.props.difficulty}&type=multiple`
     )
       .then(res => res.json())
       .then(json => {
@@ -39,7 +41,6 @@ class Question extends Component {
           pointMult: (this.state.pointMult = this.props.pointMult)
         });
         this.decrementTime();
-        let random = Math.floor(Math.random() * 4);
       });
   }
 
@@ -70,7 +71,6 @@ class Question extends Component {
       return;
     }
     self.setState({ block: (this.state.block = true) });
-    console.log(self.state.block);
     let random = Math.floor(Math.random() * 4);
     if (answer) {
       self.setState({
@@ -93,11 +93,9 @@ class Question extends Component {
         questionNum: this.state.questionNum + this.state.questionSwitch,
         timer: (this.state.timer = 15),
         block: (this.state.block = false),
-        dec: (this.state.dec = 1)
-      });
-      self.setState({ qOrder: (this.state.qOrder = random) });
-      self.setState({
-        pointMult: (this.state.pointMult = this.props.pointMult)
+        dec: (this.state.dec = 1),
+        pointMult: (this.state.pointMult = this.props.pointMult),
+        qOrder: (this.state.qOrder = random)
       });
     }, 3000);
   }
@@ -142,9 +140,10 @@ class Question extends Component {
                 </div>
 
                 <div>
-                  Submit Score:
+                  Submit Score: &nbsp;
                   <input
                     type="text"
+                    maxlength="19"
                     onChange={this.setName.bind(this)}
                     value={this.state.Name}
                     onClick={e => {
@@ -154,18 +153,20 @@ class Question extends Component {
                     placeholder="Name"
                     autoFocus
                   />
-                  <button
-                    onClick={() => {
-                      const newScore = {
-                        Name: this.state.Name,
-                        Score: this.state.Score
-                      };
-                      this.props.addItem(newScore);
-                    }}
-                    className="submitINPUT"
-                  >
-                    Add Score
-                  </button>
+                  <Link to="/scoreboard">
+                    <button
+                      onClick={() => {
+                        const newScore = {
+                          Name: this.state.Name,
+                          Score: this.state.Score
+                        };
+                        this.props.addItem(newScore);
+                      }}
+                      className="submitINPUT"
+                    >
+                      Add Score
+                    </button>
+                  </Link>
                 </div>
               </div>
             </Container>
@@ -177,7 +178,7 @@ class Question extends Component {
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
-          <div className="timer">Time:{this.state.timer}</div>
+          <div className="timer">Time:&nbsp;{this.state.timer}</div>
           <div className="Question">{item.question}</div>
           <ul id="answers">
             <li onClick={() => this.incrementQ(true)} style={stylesObj}>
@@ -257,7 +258,7 @@ class Question extends Component {
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
-          <div className="timer">Time:{this.state.timer}</div>
+          <div className="timer">Time: {this.state.timer}</div>
           <div className="Question">{item.question.toString()}</div>
           <ul id="answers">
             <li
@@ -341,7 +342,7 @@ class Question extends Component {
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
-          <div className="timer">Time:{this.state.timer}</div>
+          <div className="timer">Time: {this.state.timer}</div>
           <div className="Question">{item.question.toString()}</div>
           <ul id="answers">
             <li
@@ -425,7 +426,7 @@ class Question extends Component {
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
-          <div className="timer">Time:{this.state.timer}</div>
+          <div className="timer">Time: {this.state.timer}</div>
           <div className="Question">{item.question.toString()}</div>
           <ul id="answers">
             <li

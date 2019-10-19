@@ -19,7 +19,10 @@
 
 .diffBox {
   width: 100%;
-  height: 325px;
+  height: 350px;
+  border: 1px solid gray;
+  padding: 20px;
+  background: #f5f5f5
 }
 
 ul#NAVLIST li {
@@ -31,9 +34,8 @@ ul#NAVLIST li {
 ul#boxes {
   width: 100%;
   margin: 0 auto;
-  border: 1px solid gray;
   padding: 20px;
-  background: #f5f5f5
+
 }
 
 ul#boxes li {
@@ -80,11 +82,11 @@ a {
 .scoreboard {
   color: white;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  width: 300px;
+  width: 15%;
   margin: 0 auto;
   font-size: 32px;
   border: 2px solid #4484CE;
   border-radius: 25px;
-  margin-left: 780px;
+  padding: 2px;
   background: #4484CE
 }
