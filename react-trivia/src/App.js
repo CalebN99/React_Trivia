@@ -16,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: [{ label: "Select a Cateogry...", value: "" }],
+      value: [{ label: "Select a Category...", value: "" }],
       options: [
         { label: "Random", value: "0" },
         { label: "Computer Science", value: "18" },
