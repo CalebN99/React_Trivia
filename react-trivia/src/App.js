@@ -10,20 +10,32 @@ import store from "./store";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: 0 };
+    this.state = {
+      value: [{ label: "Select a Cateogry...", value: "" }],
+      options: [
+        { label: "Random", value: "0" },
+        { label: "Computer Science", value: "18" },
+        { label: "Video Games", value: "15" }
+      ]
+    };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.stateChange = this.stateChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.stateChange = this.stateChange.bind(this);
   }
 
-  stateChange(x) {
-    this.setState({ value: (this.state.value = x) });
-    console.log(this.state.value);
-  }
+  // stateChange(x) {
+  //   this.setState({ value: (this.state.value = x) });
+  //   console.log(this.state.value);
+  // }
+  stateChange = target => {
+    console.log(target);
+    this.setState({ value: target });
+  };
 
   handleChange(y) {
     this.stateChange(y);
@@ -38,19 +50,20 @@ class App extends Component {
               <h1>Welcome to Reactive!</h1>
             </div>
             <div className="diffBox">
-              <label>Computer Science</label>
-              <input
-                type="radio"
-                autoFocus
-                onChange={() => this.handleChange("18")}
-              />
+              <div className="categories">
+                <h1>Categories</h1>
+                <Select
+                  options={this.state.options}
+                  onChange={this.stateChange}
+                  value={this.state.value}
+                />
+              </div>
+
+              {/* <label>Computer Science</label>
+              <input type="radio" onChange={() => this.handleChange("18")} />
               <div></div>
               <label>Video Games</label>
-              <input
-                type="radio"
-                autoFocus
-                onChange={() => this.handleChange("15")}
-              />
+              <input type="radio" onChange={() => this.handleChange("15")} /> */}
 
               {/* <input type="button" onClick={this.handleChange}>
                 Computer Science
@@ -88,7 +101,7 @@ class App extends Component {
                     {...props}
                     difficulty={"easy"}
                     pointMult={2}
-                    category={this.state.value}
+                    category={this.state.value.value}
                   />
                 )}
               />
@@ -100,7 +113,7 @@ class App extends Component {
                     {...props}
                     difficulty={"medium"}
                     pointMult={3}
-                    category={this.state.value}
+                    category={this.state.value.value}
                   />
                 )}
               />
@@ -112,7 +125,7 @@ class App extends Component {
                     {...props}
                     difficulty={"hard"}
                     pointMult={4}
-                    category={this.state.value}
+                    category={this.state.value.value}
                   />
                 )}
               />
