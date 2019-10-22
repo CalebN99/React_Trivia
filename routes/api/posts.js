@@ -16,7 +16,8 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const newScore = new Score({
     Name: req.body.Name,
-    Score: req.body.Score
+    Score: req.body.Score,
+    Category: req.body.Category
   });
 
   newScore.save().then(item => res.json(item));

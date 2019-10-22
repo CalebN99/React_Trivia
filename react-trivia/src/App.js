@@ -102,6 +102,7 @@ class App extends Component {
                     difficulty={"easy"}
                     pointMult={2}
                     category={this.state.value.value}
+                    Category={this.state.value.label}
                   />
                 )}
               />
@@ -114,6 +115,7 @@ class App extends Component {
                     difficulty={"medium"}
                     pointMult={3}
                     category={this.state.value.value}
+                    Category={this.state.value.label}
                   />
                 )}
               />
@@ -126,6 +128,7 @@ class App extends Component {
                     difficulty={"hard"}
                     pointMult={4}
                     category={this.state.value.value}
+                    Category={this.state.value.label}
                   />
                 )}
               />

@@ -18,10 +18,11 @@ class Scores extends Component {
     return (
       <Provider store={store}>
         <div class="scorelist">
-          {items.map(({ _id, Name, Score }) => (
+          {items.map(({ _id, Name, Score, Category }) => (
             <div key={_id} class="score">
               Name: <span class="nameSpan">{Name}</span>
               <span class="scoreSpan"> Score: {Score}</span>
+              <span class="scoreSpan"> Category: {Category}</span>
             </div>
           ))}
         </div>

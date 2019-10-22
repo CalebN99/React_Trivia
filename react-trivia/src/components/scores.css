@@ -7,7 +7,7 @@
 
 .scorelist {
     border: 3px solid #4484CE;
-    width: 570px;
+    width: 50%;
     border-radius: 25px;
     margin: 0 auto;
     background: #4484CE;
@@ -16,7 +16,7 @@
 .score {
     color: black;
     font-size: 23px;
-    width: 560px;
+    width: 90%;
     background: white;
     border: 1px solid white;
     border-radius: 15px;
@@ -27,12 +27,8 @@
     margin-bottom: 10px;
 }
 
-.nameSpan {
-    width: 100px;
-    position: absolute;
 
-}
 
 .scoreSpan {
-    margin-left: 340px;
+    margin-left: 10px;
 }

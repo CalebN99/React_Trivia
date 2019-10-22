@@ -158,7 +158,8 @@ class Question extends Component {
                       onClick={() => {
                         const newScore = {
                           Name: this.state.Name,
-                          Score: this.state.Score
+                          Score: this.state.Score,
+                          Category: this.props.Category
                         };
                         this.props.addItem(newScore);
                       }}

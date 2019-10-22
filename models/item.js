@@ -12,6 +12,10 @@ const Scores = new Schema({
   Score: {
     type: Number,
     required: true
+  },
+  Category: {
+    type: String,
+    required: true
   }
 });
 
