@@ -1,34 +1,29 @@
 .scoreTitle {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 26px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 26px;
 }
 
-
-
 .scorelist {
-    border: 3px solid #4484CE;
-    width: 50%;
-    border-radius: 25px;
-    margin: 0 auto;
-    background: #4484CE;
+  border: 3px solid #4484ce;
+  width: 50%;
+  border-radius: 25px;
+  margin: 0 auto;
+  background: #4484ce;
 }
 
 .score {
-    color: black;
-    font-size: 23px;
-    width: 90%;
-    background: white;
-    border: 1px solid white;
-    border-radius: 15px;
-    text-align: left;
-    padding: 3px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  color: black;
+  font-size: 23px;
+  width: 90%;
+  background: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 3px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-
-
 .scoreSpan {
-    margin-left: 10px;
+  margin-left: 10px;
 }

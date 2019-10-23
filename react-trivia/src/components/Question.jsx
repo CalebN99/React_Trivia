@@ -8,6 +8,10 @@ import { connect } from "react-redux";
 import { addItem } from "../actions/itemAction";
 import { Link } from "react-router-dom";
 
+import Scoreboard from "./Scoreboard";
+
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+
 class Question extends Component {
   constructor(props) {
     super(props);
@@ -66,6 +70,7 @@ class Question extends Component {
   }
 
   incrementQ(answer) {
+    console.log(this.props.Category);
     const self = this;
     if (self.state.block === true) {
       return;
@@ -137,6 +142,7 @@ class Question extends Component {
               <div className="Q">
                 <div className="score">
                   <h1> Score: {this.state.Score}</h1>
+                  <h1>{this.props.Category}</h1>
                 </div>
 
                 <div>
@@ -236,18 +242,21 @@ class Question extends Component {
                     placeholder="Name"
                     autoFocus
                   />
-                  <button
-                    onClick={() => {
-                      const newScore = {
-                        Name: this.state.Name,
-                        Score: this.state.Score
-                      };
-                      this.props.addItem(newScore);
-                    }}
-                    className="submitINPUT"
-                  >
-                    Add Score
-                  </button>
+                  <Link to="/scoreboard">
+                    <button
+                      onClick={() => {
+                        const newScore = {
+                          Name: this.state.Name,
+                          Score: this.state.Score,
+                          Category: this.props.Category
+                        };
+                        this.props.addItem(newScore);
+                      }}
+                      className="submitINPUT"
+                    >
+                      Add Score
+                    </button>
+                  </Link>
                 </div>
               </div>
             </Container>
@@ -320,18 +329,21 @@ class Question extends Component {
                     placeholder="Name"
                     autoFocus
                   />
-                  <button
-                    onClick={() => {
-                      const newScore = {
-                        Name: this.state.Name,
-                        Score: this.state.Score
-                      };
-                      this.props.addItem(newScore);
-                    }}
-                    className="submitINPUT"
-                  >
-                    Add Score
-                  </button>
+                  <Link to="/scoreboard">
+                    <button
+                      onClick={() => {
+                        const newScore = {
+                          Name: this.state.Name,
+                          Score: this.state.Score,
+                          Category: this.props.Category
+                        };
+                        this.props.addItem(newScore);
+                      }}
+                      className="submitINPUT"
+                    >
+                      Add Score
+                    </button>
+                  </Link>
                 </div>
               </div>
             </Container>
@@ -404,18 +416,21 @@ class Question extends Component {
                     placeholder="Name"
                     autoFocus
                   />
-                  <button
-                    onClick={() => {
-                      const newScore = {
-                        Name: this.state.Name,
-                        Score: this.state.Score
-                      };
-                      this.props.addItem(newScore);
-                    }}
-                    className="submitINPUT"
-                  >
-                    Add Score
-                  </button>
+                  <Link to="/scoreboard">
+                    <button
+                      onClick={() => {
+                        const newScore = {
+                          Name: this.state.Name,
+                          Score: this.state.Score,
+                          Category: this.props.Category
+                        };
+                        this.props.addItem(newScore);
+                      }}
+                      className="submitINPUT"
+                    >
+                      Add Score
+                    </button>
+                  </Link>
                 </div>
               </div>
             </Container>
@@ -480,6 +495,21 @@ class Question extends Component {
     } else if (this.state.qOrder === 3) {
       return <Route component={mainQuestion4} />;
     }
+    return (
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Switch>
+              <Route
+                path="/scoreboard"
+                exact
+                render={props => <Scoreboard {...props} />}
+              />
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
+    );
   }
 }
 

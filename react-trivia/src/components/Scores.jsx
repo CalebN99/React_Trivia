@@ -20,9 +20,10 @@ class Scores extends Component {
         <div class="scorelist">
           {items.map(({ _id, Name, Score, Category }) => (
             <div key={_id} class="score">
-              Name: <span class="nameSpan">{Name}</span>
-              <span class="scoreSpan"> Score: {Score}</span>
-              <span class="scoreSpan"> Category: {Category}</span>
+              <div>Name: {Name}</div>
+
+              <div>Score: {Score}</div>
+              <div>Category: {Category}</div>
             </div>
           ))}
         </div>
