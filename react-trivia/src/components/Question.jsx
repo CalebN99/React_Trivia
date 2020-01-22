@@ -9,6 +9,7 @@ import { addItem } from "../actions/itemAction";
 import { Link } from "react-router-dom";
 
 import Scoreboard from "./Scoreboard";
+import Home from "../App";
 
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 
@@ -138,7 +139,19 @@ class Question extends Component {
       if (this.state.questionNum > 14) {
         return (
           <Provider store={store}>
+            <div className="home">
+              <div className="nav">
+                <div className="title">
+                  <h2>CS</h2>
+                  <h2>Trivia</h2>
+                </div>
+              </div>
+            </div>
             <Container>
+              <Link to="/">
+                <div className="backB">back</div>
+              </Link>
+
               <div className="Q">
                 <div className="score">
                   <h1> Score: {this.state.Score}</h1>
@@ -182,6 +195,17 @@ class Question extends Component {
       }
       return (
         <div className="Q">
+          <div className="home">
+            <div className="nav">
+              <div className="title">
+                <h2>CS</h2>
+                <h2>Trivia</h2>
+              </div>
+            </div>
+          </div>
+          <Link to="/">
+            <div className="backB">back</div>
+          </Link>
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
@@ -228,6 +252,17 @@ class Question extends Component {
         return (
           <Provider store={store}>
             <Container>
+              <div className="home">
+                <div className="nav">
+                  <div className="title">
+                    <h2>CS</h2>
+                    <h2>Trivia</h2>
+                  </div>
+                </div>
+              </div>
+              <Link to="/">
+                <div className="backB">back</div>
+              </Link>
               <div className="Q">
                 <div className="score">
                   <h1> Score: {this.state.Score}</h1>
@@ -265,6 +300,17 @@ class Question extends Component {
       }
       return (
         <div className="Q">
+          <div className="home">
+            <div className="nav">
+              <div className="title">
+                <h2>CS</h2>
+                <h2>Trivia</h2>
+              </div>
+            </div>
+          </div>
+          <Link to="/">
+            <div className="backB">back</div>
+          </Link>
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
@@ -315,6 +361,17 @@ class Question extends Component {
         return (
           <Provider store={store}>
             <Container>
+              <div className="home">
+                <div className="nav">
+                  <div className="title">
+                    <h2>CS</h2>
+                    <h2>Trivia</h2>
+                  </div>
+                </div>
+              </div>
+              <Link to="/">
+                <div className="backB">back</div>
+              </Link>
               <div className="Q">
                 <div className="score">
                   <h1> Score: {this.state.Score}</h1>
@@ -352,6 +409,17 @@ class Question extends Component {
       }
       return (
         <div className="Q">
+          <div className="home">
+            <div className="nav">
+              <div className="title">
+                <h2>CS</h2>
+                <h2>Trivia</h2>
+              </div>
+            </div>
+          </div>
+          <Link to="/">
+            <div className="backB">back</div>
+          </Link>
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
@@ -402,6 +470,17 @@ class Question extends Component {
         return (
           <Provider store={store}>
             <Container>
+              <div className="home">
+                <div className="nav">
+                  <div className="title">
+                    <h2>CS</h2>
+                    <h2>Trivia</h2>
+                  </div>
+                </div>
+              </div>
+              <Link to="/">
+                <div className="backB">back</div>
+              </Link>
               <div className="Q">
                 <div className="score">
                   <h1> Score: {this.state.Score}</h1>
@@ -439,6 +518,17 @@ class Question extends Component {
       }
       return (
         <div className="Q">
+          <div className="home">
+            <div className="nav">
+              <div className="title">
+                <h2>CS</h2>
+                <h2>Trivia</h2>
+              </div>
+            </div>
+          </div>
+          <Link to="/">
+            <div className="backB">back</div>
+          </Link>
           <div className="score">
             <h1> Score: {this.state.Score}</h1>
           </div>
@@ -505,6 +595,7 @@ class Question extends Component {
                 exact
                 render={props => <Scoreboard {...props} />}
               />
+              <Route path="/" exact component={Home} />
             </Switch>
           </div>
         </Router>
@@ -517,7 +608,4 @@ const mapStateToProps = state => ({
   item: state.item
 });
 
-export default connect(
-  mapStateToProps,
-  { addItem }
-)(Question);
+export default connect(mapStateToProps, { addItem })(Question);

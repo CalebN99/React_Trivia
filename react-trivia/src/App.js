@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "../src/components/Nav.css";
 import Question from "./components/Question";
 
 import Scoreboard from "./components/Scoreboard";
@@ -20,7 +21,11 @@ class App extends Component {
       options: [
         { label: "Random", value: "0" },
         { label: "Computer Science", value: "18" },
-        { label: "Video Games", value: "15" }
+        { label: "Video Games", value: "15" },
+        { label: "Television", value: "14" },
+        { label: "Film", value: "11" },
+        { label: "Music", value: "12" },
+        { label: "Books", value: "10" }
       ]
     };
 
@@ -46,6 +51,14 @@ class App extends Component {
       return (
         <Provider store={store}>
           <div className="home">
+            <div className="home">
+              <div className="nav">
+                <div className="title">
+                  <h2>CS</h2>
+                  <h2>Trivia</h2>
+                </div>
+              </div>
+            </div>
             <div className="welcome">
               <h1>Welcome to Reactive!</h1>
             </div>
