@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
 });
 
 mongoose.connect(
-  "mongodb+srv://Haunt626:Claybub10@calebsexpress-qez3f.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb://localhost:27017",
   { useNewUrlParser: true }
 );
 
